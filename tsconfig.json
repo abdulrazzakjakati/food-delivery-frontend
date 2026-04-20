@@ -11,6 +11,7 @@
     "skipLibCheck": true,
     "isolatedModules": true,
     "experimentalDecorators": true,
+    "strictPropertyInitialization": false, // Disabled for Angular's strict mode compatibility
     "importHelpers": true,
     "target": "ES2022",
     "module": "preserve"

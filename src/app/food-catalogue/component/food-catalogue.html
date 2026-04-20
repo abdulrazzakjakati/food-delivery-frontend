@@ -1,0 +1,34 @@
+
+<div class="restaurant-details"> 
+    <div *ngIf="isLoading" class="loading">Loading menu...</div>
+
+    <div class="restaurant-header">
+        <h1>{{foodItemResponse?.restaurant?.name}}</h1>
+        <button class="checkout-button" (click)="onCheckOut()">
+            <i class="fas fa-shopping-cart"></i>
+            Checkout
+        </button>
+    </div>
+    <p>{{foodItemResponse?.restaurant?.restaurantDescription}}</p>
+
+    <h2>Food Menu</h2>
+
+<div class="food-list">   
+  @for (food of foodItemResponse?.foodItemsList; track food.id) {
+    <div class="food-item">
+      <div class="food-details">
+        <div class="food-name">{{food.itemName}}</div>
+        <div class="food-price">₹ {{food.price}}</div>
+      </div>
+      <div class="food-quantity">
+        <button class="minus-button" *ngIf="food.quantity > 0" (click)="decrementQuantity(food)">-</button>
+        <div class="quantity-label">{{food.quantity}}</div>
+        <button class="plus-button" (click)="incrementQuantity(food)">+</button>
+      </div>
+    </div>
+  } @empty {
+    <p>No food items available</p>
+  }
+</div>
+
+</div>
