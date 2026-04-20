@@ -24,8 +24,8 @@ pipeline {
             echo "Dockerfile exists:"
             test -f Dockerfile && echo "✓ Found" || echo "✗ Missing!"
 
-            docker build -t abdulrazzakjakati/food-delivery-restaurant-service:${BUILD_NUMBER} .
-            docker push abdulrazzakjakati/food-delivery-restaurant-service:${BUILD_NUMBER}
+            docker build -t ${DOCKER_IMAGE} .
+            docker push ${DOCKER_IMAGE}
         '''
             }
         }
